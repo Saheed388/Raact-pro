@@ -1,15 +1,11 @@
 import React from "react";
 import Card from "./Card";
 import contacts from "../contacts";
-import Avater from "./avater";
 
 function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
-
-      <Avater img="https://tse2.mm.bing.net/th?id=OIP.Wf9aBoOrgkH2Pl3p-8avKgHaEK&pid=Api&P=0&h=220" />
-      
       <Card
         name={contacts[0].name}
         img={contacts[0].imgURL}
