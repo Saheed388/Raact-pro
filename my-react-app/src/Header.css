@@ -1,0 +1,68 @@
+
+header {
+  background-color: #eee;
+    margin: auto -16px;
+    padding: 16px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    border: 3px solid #240750 ;
+    height: 100px;
+    width: auto;
+  
+  }
+  
+  header img {
+    width: 100px;
+    position: absolute;
+    margin-bottom: 150px;
+    height: 90px;
+    top: 10px;
+  }
+  
+  header .registration-button {
+    position: relative;
+    left: 1200px;
+    background-color: #240750; /* Example style */
+    color: white;
+    margin-bottom: 150px;
+    top: 15px;
+    width: 150px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+  }
+  
+  header .login-button {
+    border-color: #240750; /* Example style */
+    color: #240750;
+    position: relative;
+    left: 1200px;
+    top: 15px;
+    width: 150px;
+    height: 60px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+  }
+  
+
+
+
+div #demo-positioned-button  {
+    position: relative;
+    left: 1530px;
+    color: #240750;
+    top: -45px;
+    height: 60px;
+    width: 50px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+  }
+
+  .webSearch{
+    position: absolute;
+    left: 500px;
+    top: -105px;
+    width: 600px;
+    border: 2px solid #240750;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+    
+  }
