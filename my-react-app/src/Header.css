@@ -1,10 +1,10 @@
 
 header {
-  background-color: #eee;
+  background-color: #e8deff;
     margin: auto -16px;
     padding: 16px 32px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    border: 3px solid #240750 ;
+    /* border: 2px solid #D7B462 ; */
     height: 100px;
     width: auto;
   
@@ -21,7 +21,7 @@ header {
   header .registration-button {
     position: relative;
     left: 1200px;
-    background-color: #240750; /* Example style */
+    background-color: #25054b; /* Example style */
     color: white;
     margin-bottom: 150px;
     top: 15px;
@@ -31,8 +31,8 @@ header {
   }
   
   header .login-button {
-    border-color: #240750; /* Example style */
-    color: #240750;
+    border-color: #25054b; /* Example style */
+    color: #25054b;
     position: relative;
     left: 1200px;
     top: 15px;
@@ -48,11 +48,13 @@ header {
 div #demo-positioned-button  {
     position: relative;
     left: 1530px;
-    color: #240750;
+    color: #25054b;
     top: -45px;
     height: 60px;
     width: 50px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    border-color: #25054b; /* Example style */
+
 
   }
 
@@ -63,6 +65,7 @@ div #demo-positioned-button  {
     width: 600px;
     border: 2px solid #240750;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    border-color: #D7B462; /* Example style */
 
     
   }

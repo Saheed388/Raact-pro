@@ -11,12 +11,12 @@
   .first-grid, .second-grid, .third-grid {
     height: 200px; /* Example height */
     padding-top: 100px;
-    background-color: #eee;
+    background-color: #e8deff;
   
   }
   
   .gridContainer{
-    background-color: #eee;
+    background-color: #e8deff;
     /* border: 1px solid #240750;   Example border */
     padding-top: 20px;
     width: 100%;
@@ -24,9 +24,10 @@
   
   .gridContainer .first-grid{
     height: 700px;
-    border: 3px solid #240750; 
+    /* border: 3px solid #D7B462;  */
     padding-right: 50px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: #e8deff;
 
   
   }
@@ -35,16 +36,18 @@
   
   .gridContainer .second-grid{
     height: auto;
-    border: 3px solid #240750; 
+    /* border: 3px solid #25054b;  */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: #e8deff;
 
   
   }
 
   .gridContainer .third-grid{
     height: 500px;
-    border: 3px solid #240750; 
+    /* border: 3px solid #D7B462;  */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: #e8deff;
 
   
   }

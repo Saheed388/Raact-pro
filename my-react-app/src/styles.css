@@ -7,7 +7,7 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background-color: #eee;
+  background-color: #e8deff;
 }
 
 /* HEADING PATH */
@@ -97,39 +97,7 @@ form.create-note button {
 
 /* App.css */
 
-.grid-item {
-  border: 1px solid #240750;   /* Example border */
-}
 
-.grid-column {
-  padding: 10px;            /* Example padding */
-  height: 100%;
-
-}
-
-.first-grid, .second-grid, .third-grid {
-  height: 200px; /* Example height */
-  padding-top: 100px;
-  background-color: #eee;
-
-}
-
-.gridContainer{
-  background-color: #eee;
-  /* border: 1px solid #240750;   Example border */
-  padding-top: 20px;
-  width: 100%;
-}
-
-.gridContainer .first-grid{
-  height: 700px
-
-}
-
-.gridContainer .second-grid{
-  height: auto;
-
-}
 
 
 
