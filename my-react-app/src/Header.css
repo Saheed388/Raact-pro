@@ -1,6 +1,13 @@
+:root {
+  --main-color: #b01c47;
+}
+
+
+
 
 header {
-  background-color: #e8deff;
+  background: rgb(214,208,222);
+background: linear-gradient(60deg, rgba(214,208,222,1) 7%, rgba(7, 84, 240, 0.945) 100%);
     margin: auto -16px;
     padding: 16px 32px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -21,7 +28,7 @@ header {
   header .registration-button {
     position: relative;
     left: 1200px;
-    background-color: #25054b; /* Example style */
+    background-color: rgb(181, 52, 113); /* Example style */
     color: white;
     margin-bottom: 150px;
     top: 15px;
@@ -31,8 +38,9 @@ header {
   }
   
   header .login-button {
+    background-color: #ded0da;
     border-color: #25054b; /* Example style */
-    color: #25054b;
+    color: #b01c47;
     position: relative;
     left: 1200px;
     top: 15px;
@@ -69,3 +77,16 @@ div #demo-positioned-button  {
 
     
   }
+
+
+
+ /* Header.css */
+.Navbar-location {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  top: 30px;
+  left: 200px;
+  
+}

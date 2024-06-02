@@ -12,22 +12,22 @@ import PositionedMenu from "./Menu";
 import Search from "./Search";
 
 
-
-
-function BasicButtons() {
+function BasicButtons(props) {
 
   const[click, setClick] = useState()
 
-  function handleClick (){
-    alert("clicked")
+  function handleClick (event){
+    const clicking = event.target.value
+    setClick(clicking)
+    
   }
 
 
 
   return (
     <Stack spacing={2} direction="row">
-      <Button onClick={handleClick} className="registration-button" variant="contained">Register</Button>
-      <Button onClick={handleClick}className="login-button" variant="outlined">Login</Button>
+      <Button onClick={handleClick} className="registration-button" variant="contained" value={click}>Register</Button>
+      <Button onClick={handleClick}className="login-button" variant="outlined" value={click}>Login</Button>
     </Stack>
   );
 }

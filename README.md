@@ -23,7 +23,7 @@ Step 3. Open a Terminal or command prompt and navigate to the directory where yo
 
 Step 4. Create a Vite app by running the following command in your Terminal or Command Prompt:
 
-npm create vite@latest my-react-app --template react
+npm create vite@latest my-tyl-app --template react
 
 
 

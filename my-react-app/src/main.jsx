@@ -4,6 +4,9 @@ import App from './App.jsx'
 import './styles.css'
 import './Header.css'
 import './Grid.css'
+import './Nav.css'
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
