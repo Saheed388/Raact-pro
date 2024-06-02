@@ -4,7 +4,8 @@ import Paper from '@mui/material/Paper';
 import CreateArea from "../component/CreateArea";
 import Note from "../component/Note";
 import Notifictions from "../Notivation-like/Like-andco"
-
+import Post from "../Notivation-like/Like-andco"
+// import CreateArea from '../component/CreateArea';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#eee',
@@ -25,19 +26,29 @@ function SecondGrid() {
     setNotes((prevNotes) => prevNotes.filter((noteItem, index) => index !== id));
   };
 
+  const [posts, setPosts] = useState([]);
+
+  function addPost(newPost) {
+    setPosts(prevPosts => {
+      return [...prevPosts, newPost];
+    });
+  }
+
+
   return (
     <Item className='second-grid'>
-      <CreateArea onAdd={addNote} />
-      {notes.map((noteItem, index) => (
-        <Note
-          key={index}
-          id={index}
-          title={noteItem.title}
-          content={noteItem.content}
-          onDelete={deleteNote}
+      <div>
+      <CreateArea onAdd={addPost} />
+      {posts.map((post, index) => (
+        <Post 
+          key={index} 
+          title={post.title} 
+          content={post.content} 
+          image={post.image} 
+          video={post.video} 
         />
       ))}
-      <Notifictions/>
+    </div>
 
 
     </Item>

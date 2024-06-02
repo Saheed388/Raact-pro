@@ -1,29 +1,71 @@
+import React, { useState } from "react";
 
+function Post({ title, content, image, video }) {
+  const [likes, setLikes] = useState(0);
+  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
 
-
-
-
-import React from "react";
-import ReactDOM from "react-dom";
-
-function Notifictions() {
-  const [count, setCount] = React.useState(0);
-  // The count is the value userState, setCount is a function.
-  //which will be use to update the value in our state
-  function increase() {
-    setCount(count + 1);
+  function handleLike() {
+    setLikes(likes + 1);
   }
 
-  function decrease() {
-    setCount(count - 1);
+  function handleCommentChange(event) {
+    setComment(event.target.value);
+  }
+
+  function handleCommentSubmit(event) {
+    event.preventDefault();
+    setComments([...comments, comment]);
+    setComment("");
   }
 
   return (
-    <div className="container">
-      <h1>{count}</h1>
-      <button onClick={increase}>+</button>
-      <button onClick={decrease}>-</button>
+    <div className="post">
+      <h2>{title}</h2>
+      <p>{content}</p>
+      {image && <img src={URL.createObjectURL(image)} alt="Post Image" width="200px" />}
+      {video && <video controls width="200px"><source src={URL.createObjectURL(video)} type={video.type} /></video>}
+      <div>
+        <button onClick={handleLike}>Like ({likes})</button>
+      </div>
+      <form onSubmit={handleCommentSubmit}>
+        <input
+          type="text"
+          value={comment}
+          onChange={handleCommentChange}
+          placeholder="Add a comment"
+        />
+        <button type="submit">Comment</button>
+      </form>
+      <div>
+        {comments.map((cmt, index) => (
+          <p key={index}>{cmt}</p>
+        ))}
+      </div>
     </div>
   );
 }
-export default Notifictions;
+
+export default Post;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
