@@ -1,0 +1,1 @@
+Post.jsx => CreateArea => SecondGrid ==> App ==> main

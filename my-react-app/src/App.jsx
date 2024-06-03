@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Header from "./Headerfile/Header";
-import Footer from "./component/Footer";
 import Note from "./component/Note";
 import CreateArea from "./component/CreateArea";
 import AutoGrid from "./Gridfiles/AutoGrid";
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -22,7 +22,6 @@ function App() {
       <Header />
       <AutoGrid />
     
-      <Footer />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import './styles.css'
 import './Header.css'
 import './Grid.css'
 import './Nav.css'
+import "../src/Notivation-like/Post.css"
 
 
 

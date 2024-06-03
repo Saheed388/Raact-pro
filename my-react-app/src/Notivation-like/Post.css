@@ -1,0 +1,10 @@
+input{
+    background-color: #e8deff;
+    border-radius: 5px;
+    /* border-color: blue; */
+    border: 2px solid white;
+}
+
+.reply {
+    color: blue;
+}

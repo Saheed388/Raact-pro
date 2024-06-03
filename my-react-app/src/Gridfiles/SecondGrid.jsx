@@ -16,20 +16,33 @@ function SecondGrid() {
   const [posts, setPosts] = useState([]);
 
   function addPost(newPost) {
-    setPosts(prevPosts => [newPost, ...prevPosts]); // Adding new post at the beginning
+    setPosts(prevPosts => [
+      { ...newPost, id: Date.now(), likes: 0, comments: [] },
+      ...prevPosts
+    ]); // Adding new post at the beginning
+  }
+
+  function updatePost(updatedPost) {
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === updatedPost.id ? updatedPost : post
+      )
+    );
   }
 
   return (
     <Item className="second-grid">
       <div>
         <CreateArea onAdd={addPost} />
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <Post 
-            key={index} 
+            key={post.id} 
             title={post.title} 
             content={post.content} 
             image={post.image} 
             video={post.video} 
+            post={post} // Pass the entire post object as a prop
+            onUpdate={updatePost}
           />
         ))}
       </div>
