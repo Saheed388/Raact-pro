@@ -21,9 +21,7 @@ function App() {
     <div>
       <Header />
       <AutoGrid />
-     
-        
-      
+    
       <Footer />
     </div>
   );

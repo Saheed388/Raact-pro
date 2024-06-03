@@ -1,6 +1,8 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#eee',
   ...theme.typography.body2,
@@ -10,7 +12,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function FirstGrid() {
-  return <Item className='first-grid'>xs</Item>;
+  return <Item className='first-grid'>
+
+
+  </Item>;
 }
 
 export default FirstGrid;
