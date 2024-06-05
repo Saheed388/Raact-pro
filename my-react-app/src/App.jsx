@@ -3,8 +3,10 @@ import Header from "./Headerfile/Header";
 import Note from "./component/Note";
 import CreateArea from "./component/CreateArea";
 import AutoGrid from "./Gridfiles/AutoGrid";
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+import ProductOwnerWall from "./Pages/ProductOwnerWall";
+// import RagistrationPage from "../Pages/RagistrationPage";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -19,8 +21,8 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <AutoGrid />
+      <ProductOwnerWall />
+      {/* <RagistrationPage /> */}
     
     </div>
   );

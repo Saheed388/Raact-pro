@@ -1,0 +1,124 @@
+.firstPage-log {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+.registrationPageLogo{
+    position: relative;
+    top: -120px;
+
+}
+
+.regPageSearch{
+    position: absolute;
+    left: 500px;
+    width: 600px;
+}
+
+.button-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .button-container li {
+    margin: 30px 0; /* Space between buttons */
+  }
+
+  .RegPageButton,
+.RegPageButtonApp {
+  width: 100%; /* Make buttons full width */
+  background-color: #9AC8CD;
+  border: 2px solid #1E0342;
+  ;
+  color: #1E0342;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+
+  
+}
+  
+.RegPageButtonApp {
+    background-color: #1E0342;
+  }
+
+  .RegPageButtonApp {
+    color: #E1F7F5;
+  }
+  
+  .RegPageButton:hover {
+    background-color: #E1F7F5;
+  }
+  
+  .RegPageButtonApp:hover {
+    background-color: #0E46A3;
+  }
+
+  .button-container ul {
+display: block ;  
+  padding: 0;
+  width: 300px;
+  border-radius: 20px;
+  }
+
+  .button-container ul{
+    position: absolute;
+    top: 200px;
+    left: 70px;
+}
+
+.product-decription{
+    color: #1E0342;
+}
+
+/* .select-container {
+    position: relative;
+  }
+   */
+ #Products  {
+    position: relative;
+    top: -100px; /* Adjust this value as needed to position the label inside the box */
+    left: 1350px; /* Adjust this value as needed to position the label inside the box */
+    padding: 0 5px;
+    font-weight: bold;
+    height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #1E0342;
+    border: 2px solid #E1F7F5;
+    color: #E1F7F5;
+  }
+  
+  
+  #Products:hover{
+    background-color: #9AC8CD
+  } 
+
+  .uploadDiecretToLogin{
+    position: relative;
+    top: -50px; /* Adjust this value as needed to position the label inside the box */
+    left: 1130px; /* Adjust this value as needed to position the label inside the box */
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #1E0342;
+    border: 2px solid #E1F7F5;
+    color: #E1F7F5;
+  }
+  
+  .uploadDiecretToLogin:hover{
+    background-color: #9AC8CD
+  } 
+
+  .TermsCondition{
+    padding: 20px;
+    color: #1E0342;
+  }
+
+  .TermsCondition span{
+    color: red;
+  }

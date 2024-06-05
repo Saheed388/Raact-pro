@@ -6,6 +6,9 @@ import './Header.css'
 import './Grid.css'
 import '../src/Headerfile/Nav.css'
 import "../src/Notivation-like/Post.css"
+import ProductOwnerWall from "./Pages/ProductOwnerWall";
+import RagistrationPage from "./Pages/RagistrationPage";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,8 +22,9 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "Sign Up",
-    element: <MyForm/>,
+    path: "RagistrationPage",
+    element:       <RagistrationPage />
+    ,
   },
 ]);
 
