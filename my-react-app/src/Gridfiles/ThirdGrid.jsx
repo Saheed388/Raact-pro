@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import MessageNotification from "../Notivation-like/MessageNotification"
+// import MessageNotification from "../Notivation-like/MessageNotification"
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function ThirdGrid() {
   return <Item className='third-grid'>
     
-    <MessageNotification/>
+    {/* <MessageNotification/> */}
 
 
   </Item>;

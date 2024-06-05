@@ -43,7 +43,7 @@ function Post({ post, onUpdate }) {
 
   function handleReplySubmit(index, replyText) {
     const updatedComments = comments.map((cmt, i) => (
-      i === index ? { ...cmt, replies: [...cmt.replies, { text: replyText, likes: 0 }] } : cmt
+      i === index ? { ...cmt, replies: [...cmt.replies, { text: replyText, likes: 0, replies: [] }] } : cmt
     ));
     const updatedPost = { ...post, comments: updatedComments };
     onUpdate(updatedPost);
@@ -54,6 +54,40 @@ function Post({ post, onUpdate }) {
       if (i === commentIndex) {
         const updatedReplies = cmt.replies.map((reply, j) => (
           j === replyIndex ? { ...reply, likes: reply.likes + 1 } : reply
+        ));
+        return { ...cmt, replies: updatedReplies };
+      }
+      return cmt;
+    });
+    const updatedPost = { ...post, comments: updatedComments };
+    onUpdate(updatedPost);
+  }
+
+  function handleNestedReplyLike(commentIndex, replyIndex, nestedReplyIndex) {
+    const updatedComments = comments.map((cmt, i) => {
+      if (i === commentIndex) {
+        const updatedReplies = cmt.replies.map((reply, j) => {
+          if (j === replyIndex) {
+            const updatedNestedReplies = reply.replies.map((nestedReply, k) => (
+              k === nestedReplyIndex ? { ...nestedReply, likes: nestedReply.likes + 1 } : nestedReply
+            ));
+            return { ...reply, replies: updatedNestedReplies };
+          }
+          return reply;
+        });
+        return { ...cmt, replies: updatedReplies };
+      }
+      return cmt;
+    });
+    const updatedPost = { ...post, comments: updatedComments };
+    onUpdate(updatedPost);
+  }
+
+  function handleNestedReplySubmit(commentIndex, replyIndex, replyText) {
+    const updatedComments = comments.map((cmt, i) => {
+      if (i === commentIndex) {
+        const updatedReplies = cmt.replies.map((reply, j) => (
+          j === replyIndex ? { ...reply, replies: [...reply.replies, { text: replyText, likes: 0, replies: [] }] } : reply
         ));
         return { ...cmt, replies: updatedReplies };
       }
@@ -106,6 +140,8 @@ function Post({ post, onUpdate }) {
               onLike={() => handleCommentLike(index)}
               onReply={(replyText) => handleReplySubmit(index, replyText)}
               onReplyLike={(replyIndex) => handleReplyLike(index, replyIndex)}
+              onNestedReplyLike={(replyIndex, nestedReplyIndex) => handleNestedReplyLike(index, replyIndex, nestedReplyIndex)}
+              onNestedReplySubmit={(replyIndex, replyText) => handleNestedReplySubmit(index, replyIndex, replyText)}
             />
           ))}
         </div>
@@ -114,7 +150,7 @@ function Post({ post, onUpdate }) {
   );
 }
 
-function Comment({ comment, onLike, onReply, onReplyLike }) {
+function Comment({ comment, onLike, onReply, onReplyLike, onNestedReplyLike, onNestedReplySubmit }) {
   const [replyText, setReplyText] = useState("");
   const [showReplies, setShowReplies] = useState(false);
 
@@ -135,7 +171,7 @@ function Comment({ comment, onLike, onReply, onReplyLike }) {
   }
 
   return (
-    <div className="comment" style={{ backgroundColor: '#E1F7F5', padding: '10px', borderRadius: '5px', margin: '10px 0' }}>
+    <div className="comment" style={{ backgroundColor: '#E1F7F5', padding: '10px', borderRadius: '5px', margin: '10px 0', border: '1px solid #ccc' }}>
       <p style={{ wordWrap: 'break-word' }}>{comment.text}</p>
       <div style={{ display: "flex", alignItems: "center", backgroundColor: '#D4F1F4', padding: '5px', borderRadius: '5px' }}>
         <Zoom in={true}>
@@ -155,7 +191,7 @@ function Comment({ comment, onLike, onReply, onReplyLike }) {
               value={replyText}
               onChange={handleReplyChange}
               placeholder="Add a reply"
-              style={{ width: 'calc(100% - 20px)', padding: '5px', boxSizing: 'border-box' }}
+              style={{ width: 'calc(100% - 20px)', padding: '5px', boxSizing: 'border-box', backgroundColor: '#E1F7F5', border: '1px solid #ccc' }}
             />
             <Zoom in={true}>
               <Fab type="submit" size="small">
@@ -163,15 +199,16 @@ function Comment({ comment, onLike, onReply, onReplyLike }) {
               </Fab>
             </Zoom>
           </form>
-          {comment.replies.map((reply, index) => (
-            <div key={index} className="reply" style={{ backgroundColor: '#E1F7F5', padding: '10px', borderRadius: '5px', margin: '10px 0', wordWrap: 'break-word' }}>
-              <p>{reply.text}</p>
-              <Zoom in={true}>
-                <Fab onClick={() => onReplyLike(index)} size="small">
-                  <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px', fontSize: '16px' }} /> {reply.likes}
-                </Fab>
-              </Zoom>
-            </div>
+          {comment.replies.map((reply, replyIndex) => (
+            <Comment
+              key={replyIndex}
+              comment={reply}
+              onLike={() => onReplyLike(replyIndex)}
+              onReply={(nestedReplyText) => onNestedReplySubmit(replyIndex, nestedReplyText)}
+              onReplyLike={(nestedReplyIndex) => onNestedReplyLike(replyIndex, nestedReplyIndex)}
+              onNestedReplyLike={onNestedReplyLike}
+              onNestedReplySubmit={onNestedReplySubmit}
+            />
           ))}
         </div>
       )}

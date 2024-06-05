@@ -12,6 +12,7 @@ function CreateArea(props) {
     video: null
   });
 
+  
   function handleChange(event) {
     const { name, value } = event.target;
     setNote(prevNote => ({ ...prevNote, [name]: value }));

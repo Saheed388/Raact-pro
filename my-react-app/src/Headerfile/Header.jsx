@@ -14,31 +14,13 @@ import Search from "./Search";
 
 
 
-function BasicButtons(props) {
 
-  const[click, setClick] = useState()
-
-  function handleClick (event){
-    const clicking = event.target.value
-    setClick(clicking)
-    
-  }
-
-
-
-  return (
-    <Stack spacing={2} direction="row">
-      <Button onClick={handleClick} className="registration-button" variant="contained" value={click}>Register</Button>
-      <Button onClick={handleClick}className="login-button" variant="outlined" value={click}>Login</Button>
-    </Stack>
-  );
-}
 
 function Header() {
   return (
     <header>
       <img src={iqlas} alt="product logo" />
-      <BasicButtons />
+      {/* <BasicButtons /> */}
       <PositionedMenu /> {/* Correct usage of the PositionedMenu component */}
       <Search/>
 

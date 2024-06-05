@@ -11,12 +11,12 @@ function Search() {
             InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">
-                        <PersonSearchIcon style={{ color: '#1E0342' }} />
+                        <PersonSearchIcon style={{ color: '#1E0342' , border:'transparent'}} />
                     </InputAdornment>
                 ),
             }}
             sx={{
-                backgroundColor: '#E1F7F5',  borderRadius: '20px' // Change the inner background color of the TextField
+                backgroundColor: '#E1F7F5',  borderRadius: '20px', marginTop: '10px', marginLeft: '15px' // Change the inner background color of the TextField
                 
             }}
         />

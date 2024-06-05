@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MyForm from "./Log-Signup/RegistrationPage"
+import MyForm from "../src/Log-Signup/Login"
 
 function App-form () {
   return (

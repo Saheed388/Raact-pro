@@ -53,14 +53,4 @@
     background-color: #e8deff;
   }
 
-   .registration-container{
-
-    display: flex;
-    justify-content: space-between;
-   }
-
-   .login-button{
-    position: absolute;
-    left: 100px;
-    top: 100px;
-   }
+   
