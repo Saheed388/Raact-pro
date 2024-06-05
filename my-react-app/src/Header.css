@@ -2,12 +2,13 @@
   --main-color: #b01c47;
 }
 
-
+body{
+  color: #E1F7F5;
+}
 
 
 header {
-  background: rgb(214,208,222);
-background: linear-gradient(60deg, rgba(214,208,222,1) 7%, rgba(7, 84, 240, 0.945) 100%);
+    background-color: #9AC8CD;
     margin: auto -16px;
     padding: 16px 32px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -27,26 +28,26 @@ background: linear-gradient(60deg, rgba(214,208,222,1) 7%, rgba(7, 84, 240, 0.94
   
   header .registration-button {
     position: relative;
-    left: 1200px;
-    background-color: rgb(181, 52, 113); /* Example style */
+    left: 1250px;
+    background-color: #ded0da ;/* Example style */
     color: white;
     margin-bottom: 150px;
-    top: 15px;
+    top: 16px;
     width: 150px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-
-  }
+    border-radius: 20px;}
   
-  header .login-button {
-    background-color: #ded0da;
-    border-color: #25054b; /* Example style */
-    color: #b01c47;
+   header .login-button {
+    background-color: rgba(73, 127, 234, 0.945);
+    border-color: rgba(73, 127, 234, 0.945); /* Example style */
+    color: #ded0da;
     position: relative;
     left: 1200px;
     top: 15px;
     width: 150px;
     height: 60px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
 
   }
   
@@ -62,7 +63,6 @@ div #demo-positioned-button  {
     width: 50px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     border-color: #25054b; /* Example style */
-
 
   }
 
@@ -86,7 +86,7 @@ div #demo-positioned-button  {
   bottom: 0;
   width: 100%;
   display: flex;
-  top: 30px;
+  top: 10px;
   left: 200px;
   
 }

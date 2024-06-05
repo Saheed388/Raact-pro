@@ -16,7 +16,7 @@
   }
   
   .gridContainer{
-    background-color: #e8deff;
+    background-color: #E1F7F5;
     /* border: 1px solid #240750;   Example border */
     padding-top: 20px;
     width: 100%;
@@ -27,7 +27,7 @@
     /* border: 3px solid #D7B462;  */
     padding-right: 50px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: #e8deff;
+    background-color: #9AC8CD;
 
   
   }
@@ -38,7 +38,7 @@
     height: 300px;
     /* border: 3px solid #25054b;  */
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
-    background-color: #e8deff;
+    background-color: #9AC8CD;
 
   
   }
@@ -47,7 +47,7 @@
     height: 500px;
     /* border: 3px solid #D7B462;  */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: #e8deff;
+    background-color: #9AC8CD;
 
   
   }

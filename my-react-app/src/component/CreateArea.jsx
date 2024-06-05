@@ -77,7 +77,7 @@ function CreateArea(props) {
                   name="video"
                   accept="video/*"
                   onChange={handleFileChange}
-                  style={{ display: 'none' }}
+                  style={{ display: 'none', backgroundColor: '#9AC8CD'}}
                 />
               </div>
             </div>

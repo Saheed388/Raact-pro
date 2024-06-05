@@ -7,16 +7,20 @@ function Search() {
     return (
         <TextField
             className="webSearch"
-            placeholder="Find Related Peoduct"
+            placeholder="Find Related Product"
             InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">
-                        <PersonSearchIcon />
+                        <PersonSearchIcon style={{ color: '#1E0342' }} />
                     </InputAdornment>
                 ),
             }}
+            sx={{
+                backgroundColor: '#E1F7F5',  borderRadius: '20px' // Change the inner background color of the TextField
+                
+            }}
         />
-    ); 
+    );
 }
 
 export default Search;

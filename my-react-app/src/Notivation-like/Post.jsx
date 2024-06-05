@@ -6,7 +6,7 @@ import Zoom from '@mui/material/Zoom';
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 
 function Post({ post, onUpdate }) {
-  const { title, content, image, video, likes, comments, id } = post;
+  const { title, content, image, video, likes, comments } = post;
   const [comment, setComment] = useState("");
   const [showComments, setShowComments] = useState(false);
 
@@ -49,37 +49,54 @@ function Post({ post, onUpdate }) {
     onUpdate(updatedPost);
   }
 
+  function handleReplyLike(commentIndex, replyIndex) {
+    const updatedComments = comments.map((cmt, i) => {
+      if (i === commentIndex) {
+        const updatedReplies = cmt.replies.map((reply, j) => (
+          j === replyIndex ? { ...reply, likes: reply.likes + 1 } : reply
+        ));
+        return { ...cmt, replies: updatedReplies };
+      }
+      return cmt;
+    });
+    const updatedPost = { ...post, comments: updatedComments };
+    onUpdate(updatedPost);
+  }
+
   return (
-    <div className="post">
+    <div className="post" style={{ backgroundColor: '#9AC8CD', padding: '10px', borderRadius: '5px', margin: '10px 0' }}>
       <h2>{title}</h2>
       <p>{content}</p>
-      {image && <img src={URL.createObjectURL(image)} alt="Post Image" width="200px" />}
-      {video && <video controls width="200px"><source src={URL.createObjectURL(video)} type={video.type} /></video>}
-      <div>
-        <Zoom in={true}>
-          <Fab onClick={handleLike}>
-            <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px' }} /> {likes}
-          </Fab>
-        </Zoom>
-      </div>
-      <form onSubmit={handleCommentSubmit}>
+      {image && <img src={URL.createObjectURL(image)} alt="Post Image" width="400px" />}
+      {video && <video controls width="400px"><source src={URL.createObjectURL(video)} type={video.type} /></video>}
+      
+      <form onSubmit={handleCommentSubmit} style={{ marginBottom: '10px' }}>
         <input
           type="text"
           value={comment}
           onChange={handleCommentChange}
           placeholder="Add a comment"
+          style={{ width: 'calc(100% - 20px)', padding: '10px', boxSizing: 'border-box', backgroundColor: '#9AC8CD' }}
         />
-        <Zoom in={true}>
-          <Fab type="submit">
-            <MapsUgcIcon style={{ color: 'blue', margin: '5px' }} /> {comments.length}
-          </Fab>
-        </Zoom>
+        <div className="button-container" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+          <Zoom in={true}>
+            <Fab onClick={handleLike}>
+              <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px' }} /> {likes}
+            </Fab>
+          </Zoom>
+          <Zoom in={true}>
+            <Fab type="submit">
+              <MapsUgcIcon style={{ color: 'blue', margin: '5px' }} /> {comments.length}
+            </Fab>
+          </Zoom>
+          <Zoom in={true}>
+            <Fab onClick={expandComment}>
+              <GridViewOutlinedIcon style={{ color: 'blue', margin: '5px' }} />
+            </Fab>
+          </Zoom>
+        </div>
       </form>
-      <Zoom in={true}>
-        <Fab onClick={expandComment}>
-          <GridViewOutlinedIcon style={{ color: 'blue', margin: '5px' }} />
-        </Fab>
-      </Zoom>
+
       {showComments && (
         <div>
           {comments.map((cmt, index) => (
@@ -88,6 +105,7 @@ function Post({ post, onUpdate }) {
               comment={cmt}
               onLike={() => handleCommentLike(index)}
               onReply={(replyText) => handleReplySubmit(index, replyText)}
+              onReplyLike={(replyIndex) => handleReplyLike(index, replyIndex)}
             />
           ))}
         </div>
@@ -96,7 +114,7 @@ function Post({ post, onUpdate }) {
   );
 }
 
-function Comment({ comment, onLike, onReply }) {
+function Comment({ comment, onLike, onReply, onReplyLike }) {
   const [replyText, setReplyText] = useState("");
   const [showReplies, setShowReplies] = useState(false);
 
@@ -117,45 +135,44 @@ function Comment({ comment, onLike, onReply }) {
   }
 
   return (
-    <div className="comment">
-      <p>{comment.text}</p>
-      <div style={{ display: "flex", alignItems: "center" }}>
+    <div className="comment" style={{ backgroundColor: '#E1F7F5', padding: '10px', borderRadius: '5px', margin: '10px 0' }}>
+      <p style={{ wordWrap: 'break-word' }}>{comment.text}</p>
+      <div style={{ display: "flex", alignItems: "center", backgroundColor: '#D4F1F4', padding: '5px', borderRadius: '5px' }}>
         <Zoom in={true}>
-          <Fab onClick={onLike}>
-            <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px' }} /> {comment.likes}
+          <Fab onClick={onLike} size="small">
+            <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px', fontSize: '16px' }} /> {comment.likes}
           </Fab>
         </Zoom>
-        <button className="replies" onClick={toggleReplies} style={{ marginLeft: '10px' }}>
+        <button onClick={toggleReplies} style={{ marginLeft: '10px', padding: '5px 10px', borderRadius: '5px', backgroundColor: '#D4F1F4', color: '#1E0342', border: '1px solid #1E0342', cursor: 'pointer' }}>
           {showReplies ? "Hide Replies" : "Show Replies"}
         </button>
       </div>
       {showReplies && (
-        <div className="replies">
+        <div className="replies" style={{ marginLeft: '20px', marginTop: '10px' }}>
           <form onSubmit={handleReplySubmit}>
             <input
               type="text"
               value={replyText}
               onChange={handleReplyChange}
               placeholder="Add a reply"
+              style={{ width: 'calc(100% - 20px)', padding: '5px', boxSizing: 'border-box' }}
             />
             <Zoom in={true}>
-              <Fab type="submit">
-                <MapsUgcIcon style={{ color: 'blue', margin: '5px' }} /> {comment.replies.length}
+              <Fab type="submit" size="small">
+                <MapsUgcIcon style={{ color: 'blue', margin: '5px', fontSize: '16px' }} /> {comment.replies.length}
               </Fab>
             </Zoom>
           </form>
-          <div>
-            {comment.replies.map((reply, index) => (
-              <div key={index} className="reply">
-                <p>{reply.text}</p>
-                <Zoom in={true}>
-                  <Fab onClick={() => handleReplyLike(index)}>
-                    <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px' }} /> {reply.likes}
-                  </Fab>
-                </Zoom>
-              </div>
-            ))}
-          </div>
+          {comment.replies.map((reply, index) => (
+            <div key={index} className="reply" style={{ backgroundColor: '#E1F7F5', padding: '10px', borderRadius: '5px', margin: '10px 0', wordWrap: 'break-word' }}>
+              <p>{reply.text}</p>
+              <Zoom in={true}>
+                <Fab onClick={() => onReplyLike(index)} size="small">
+                  <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px', fontSize: '16px' }} /> {reply.likes}
+                </Fab>
+              </Zoom>
+            </div>
+          ))}
         </div>
       )}
     </div>

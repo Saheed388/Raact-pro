@@ -7,7 +7,7 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background-color: #e8deff;
+  background-color: #E1F7F5;
 }
 
 /* HEADING PATH */
@@ -30,9 +30,9 @@ footer p {
   color: #ccc;
 }
 .note {
-  background: #ded0da;
+  background: #E1F7F5;
   border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
+  box-shadow: 0 2px 5px #E1F7F5;
   padding: 10px;
   width: 700px;
   margin: 26px;
@@ -68,17 +68,17 @@ left: 30px;
   height: 36px;
   cursor: pointer;
   outline: none;
-  background-color: #ded0da;
+  background-color: #E1F7F5;
 }
 
 form.create-note {
   position: relative;
   width: 480px;
   margin: 30px auto 20px auto;
-  background: #fff;
+  background: #E1F7F5;
   padding: 15px;
   border-radius: 7px;
-  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  box-shadow: 0 1px 5px #E1F7F5;
 }
 form.create-note input,
 form.create-note textarea {
@@ -95,7 +95,7 @@ form.create-note button {
   right: 18px;
   bottom: -18px;
   background: #240750;;
-  color: #ded0da;
+  color: #E1F7F5;
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -122,7 +122,7 @@ form.create-note button {
 }
 
 .post {
-  border: 1px solid #ccc;
+  border: 1px solid #E1F7F5;
   margin: 20px;
   padding: 20px;
   border-radius: 5px;
