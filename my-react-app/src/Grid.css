@@ -1,3 +1,10 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 .grid-item {
     border: 1px solid #240750;   /* Example border */
   }
@@ -15,39 +22,52 @@
   
   }
   
-  .gridContainer{
-    background-color: #E1F7F5;
+
+
+  .gridContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px; 
+    background-color: rgb(77, 71, 71);;
     /* border: 1px solid #240750;   Example border */
     padding-top: 20px;
-    width: 100%;
   }
   
-  .gridContainer .first-grid{
-    height: 700px;
-    /* border: 3px solid #D7B462;  */
-    padding-right: 50px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: #9AC8CD;
-
   
-  }
+.gridContainer .first-grid{
+  position: fixed;
+  width: 430px;
+}
+.gridContainer .third-grid {
+  position: fixed;
+  width: 450px;
+}
 
-  
-  
-  .gridContainer .second-grid{
-    height: 300px;
-    /* border: 3px solid #25054b;  */
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
-    background-color: #9AC8CD;
+.gridContainer .first-grid {
+  top: 100px; /* Adjusting for the fixed header */
+  left: 0;
+  height: 700px;
+  padding-right: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: #9AC8CD;
+  margin-top: 20px;
 
-  
-  }
+}
 
-  .gridContainer .third-grid{
-    height: 500px;
-    /* border: 3px solid #D7B462;  */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: #9AC8CD;
-
+.gridContainer .second-grid {
+  margin-top: 100px; /* Adjusting for the fixed header */
+  margin-left: 400px; /* Adjusting for the first fixed element */
+  height: 300px;
+  background-color: #9AC8CD;
   
-  }
+}
+
+.gridContainer .third-grid {
+  top: 100px; /* Adjusting for the fixed header */
+  right: 0;
+  height: 500px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: #9AC8CD;
+  margin-top: 20px;
+}
+

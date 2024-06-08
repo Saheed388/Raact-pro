@@ -5,8 +5,7 @@ import CreateArea from "./component/CreateArea";
 import AutoGrid from "./Gridfiles/AutoGrid";
 
 
-import ProductOwnerWall from "./Pages/ProductOwnerWall";
-// import RagistrationPage from "../Pages/RagistrationPage";
+import HomePageRegistration from "./Pages/HomePageRegistration.jsx";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -21,8 +20,7 @@ function App() {
 
   return (
     <div>
-      <ProductOwnerWall />
-      {/* <RagistrationPage /> */}
+      <HomePageRegistration />
     
     </div>
   );

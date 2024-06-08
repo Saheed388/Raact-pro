@@ -4,6 +4,7 @@ import MapsUgcIcon from '@mui/icons-material/MapsUgc';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import './Post.css'
 
 function Post({ post, onUpdate }) {
   const { title, content, image, video, likes, comments } = post;
@@ -98,11 +99,11 @@ function Post({ post, onUpdate }) {
   }
 
   return (
-    <div className="post" style={{ backgroundColor: '#9AC8CD', padding: '10px', borderRadius: '5px', margin: '10px 0' }}>
+    <div className="post" style={{ backgroundColor: ' rgb(77, 71, 71)', padding: '100px', borderRadius: '5px' }}>
       <h2>{title}</h2>
       <p>{content}</p>
-      {image && <img src={URL.createObjectURL(image)} alt="Post Image" width="400px" />}
-      {video && <video controls width="400px"><source src={URL.createObjectURL(video)} type={video.type} /></video>}
+      {image && <img src={URL.createObjectURL(image)} alt="Post Image" width="auto" />}
+      {video && <video controls width="auto"><source src={URL.createObjectURL(video)} type={video.type} /></video>}
       
       <form onSubmit={handleCommentSubmit} style={{ marginBottom: '10px' }}>
         <input
@@ -110,9 +111,9 @@ function Post({ post, onUpdate }) {
           value={comment}
           onChange={handleCommentChange}
           placeholder="Add a comment"
-          style={{ width: 'calc(100% - 20px)', padding: '10px', boxSizing: 'border-box', backgroundColor: '#9AC8CD' }}
+          style={{ width: 'calc(100% - 20px)', padding: '10px', boxSizing: 'border-box', backgroundColor: ' rgb(77, 71, 71)' }}
         />
-        <div className="button-container" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+        <div className="button-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', gap: '20px'}}>
           <Zoom in={true}>
             <Fab onClick={handleLike}>
               <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px' }} /> {likes}
@@ -125,7 +126,7 @@ function Post({ post, onUpdate }) {
           </Zoom>
           <Zoom in={true}>
             <Fab onClick={expandComment}>
-              <GridViewOutlinedIcon style={{ color: 'blue', margin: '5px' }} />
+              <GridViewOutlinedIcon style={{ color: 'blue', margin: '5px'  }} />
             </Fab>
           </Zoom>
         </div>
@@ -171,9 +172,9 @@ function Comment({ comment, onLike, onReply, onReplyLike, onNestedReplyLike, onN
   }
 
   return (
-    <div className="comment" style={{ backgroundColor: '#E1F7F5', padding: '10px', borderRadius: '5px', margin: '10px 0', border: '1px solid #ccc' }}>
+    <div className="comment" style={{ backgroundColor: '#9AC8CD', color: 'black', padding: '10px', borderRadius: '5px', margin: '10px 10px'}}>
       <p style={{ wordWrap: 'break-word' }}>{comment.text}</p>
-      <div style={{ display: "flex", alignItems: "center", backgroundColor: '#D4F1F4', padding: '5px', borderRadius: '5px' }}>
+      <div style={{ display: "flex", alignItems: "center", backgroundColor: '#D4F1F4', padding: '5px', borderRadius: '5px', marginTop: '10px' }}>
         <Zoom in={true}>
           <Fab onClick={onLike} size="small">
             <ThumbUpAltOutlinedIcon style={{ color: 'blue', margin: '5px', fontSize: '16px' }} /> {comment.likes}

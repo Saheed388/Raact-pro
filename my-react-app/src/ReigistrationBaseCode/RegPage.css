@@ -58,7 +58,7 @@
     background-color: #0E46A3;
   }
 
-  .button-container ul {
+  .homebutton-container ul {
 display: block ;  
   padding: 0;
   width: 300px;
@@ -122,3 +122,60 @@ display: block ;
   .TermsCondition span{
     color: red;
   }
+
+
+  .homewhite-line{
+        background-color: #E1F7F5;
+            width: 444px;
+            height: 50px;
+            position: fixed;
+            top: 300px;}
+
+            .homebutton-container ul {
+              display: block ;  
+                padding: 20px;
+                width: 300px;
+                border-radius: 20px;
+                position: absolute;
+                top: 140px;
+                left: 70px;
+                margin: 10px;
+                }
+                  
+
+.RegPageButton{
+  margin-top: 20px;
+} 
+
+
+.RegPageButtonApp{
+  margin-top: 20px;
+ 
+}
+
+.homePage-container{
+  margin-top: 120px;
+
+}
+
+.termPolicy{
+  background-color:   #1E0342;
+  width: 400px;
+  height: 100px;
+  position: absolute;
+  left: 1300px;
+  top: 640px;
+  border-radius: 10px;
+  border: 2px solid #9AC8CD;
+  position: fixed;
+}
+
+.termPolicy h3{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.termPolicy h3 span{
+  color: red;
+}

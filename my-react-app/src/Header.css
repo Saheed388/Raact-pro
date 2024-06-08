@@ -8,15 +8,17 @@ body{
 
 
 header {
-    background-color: #9AC8CD;
-    margin: auto -16px;
-    padding: 16px 32px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    /* border: 2px solid #D7B462 ; */
-    height: 100px;
-    width: auto;
-  
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #9AC8CD;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  height: 100px;
+  width: 100%;
+  z-index: 1000; /* Ensure the header is on top */
+}
+
   
   header img {
     width: 100px;
@@ -26,30 +28,8 @@ header {
     top: 10px;
   }
   
-  header .registration-button {
-    position: relative;
-    left: 1250px;
-    background-color: #ded0da ;/* Example style */
-    color: white;
-    margin-bottom: 150px;
-    top: 16px;
-    width: 150px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 20px;}
-  
-   header .login-button {
-    background-color: rgba(73, 127, 234, 0.945);
-    border-color: rgba(73, 127, 234, 0.945); /* Example style */
-    color: #ded0da;
-    position: relative;
-    left: 1200px;
-    top: 15px;
-    width: 150px;
-    height: 60px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
+ 
 
-  }
   
 
 

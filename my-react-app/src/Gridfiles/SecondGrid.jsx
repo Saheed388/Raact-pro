@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import CreateArea from "../component/CreateArea";
-import Post from "../Notivation-like/Post";
+import Post from "../PostRelated/Post";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#eee',
@@ -31,22 +31,16 @@ function SecondGrid() {
   }
 
   return (
-    <Item className="second-grid">
-      <div>
+      <div style={{position: 'relative', top: '100px'}}>
         <CreateArea onAdd={addPost} />
         {posts.map((post) => (
           <Post 
             key={post.id} 
-            title={post.title} 
-            content={post.content} 
-            image={post.image} 
-            video={post.video} 
             post={post} // Pass the entire post object as a prop
             onUpdate={updatePost}
           />
         ))}
       </div>
-    </Item>
   );
 }
 
