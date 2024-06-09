@@ -167,7 +167,7 @@ display: block ;
   top: 640px;
   border-radius: 10px;
   border: 2px solid #9AC8CD;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .termPolicy h3{
@@ -178,4 +178,24 @@ display: block ;
 
 .termPolicy h3 span{
   color: red;
+}
+
+
+
+
+.homePage-container {
+ 
+  position: fixed;  
+  background-color: #9AC8CD;
+  width: 444px;
+  height: 777px;
+  border-radius: 20px;
+} 
+
+
+.homepage-box {
+  position: fixed;
+  border: 1px solid #9AC8CD;
+  background-color: #9AC8CD;
+  margin-top: 20px;
 }

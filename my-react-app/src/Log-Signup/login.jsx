@@ -5,6 +5,9 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import iqlas from '../image/iqlas.png';
 import  './form.css'
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+
+
 function LoginForm() {
   const [formData, setFormData] = useState({
     email: '',
@@ -13,6 +16,8 @@ function LoginForm() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [isFormVisible, setIsFormVisible] = useState(true);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,6 +36,14 @@ function LoginForm() {
     // Add login logic here
     console.log('Form submitted', formData);
   };
+
+  const handleClose = () => {
+    setIsFormVisible(false);
+  };
+
+  if (!isFormVisible) {
+    return null;
+  }
 
   return (
 
@@ -55,6 +68,21 @@ function LoginForm() {
           style={{ display: 'block', padding: '20px', width: '100%', backgroundColor: '#E1F7F5' }}
         />
         <IconButton
+        onClick={handleClose}
+        style={{ 
+          position: 'absolute', 
+          top: '-180px', 
+          right: '-365px', 
+          color: '#1E0342', 
+          backgroundColor: 'transparent', 
+          fontSize: '80px'
+        }}
+      >
+          <a href="/" class="home-link">
+      <CloseOutlinedIcon />
+      </a>
+      </IconButton>
+        <IconButton
           onClick={toggleShowPassword}
           style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}
         >
@@ -62,7 +90,7 @@ function LoginForm() {
         </IconButton>
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <Button className='loginbutton'  type="submit" variant="contained" color="primary">
+      <Button className='loginbutton'  type="submit" variant="contained" color="primary" style={{width: '400px', padding: '15px', borderRadius: '5px', backgroundColor: '#1E0342'}}>
         Login
       </Button>
     </form>

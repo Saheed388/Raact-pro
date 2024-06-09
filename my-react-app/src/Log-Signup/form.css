@@ -5,12 +5,7 @@
       padding: 10px;
        width: 100% }
 
-.loginbutton{
-     width: 400px;
-     padding: 15px;
-     border-radius: 5px;
-     background-color: #1E0342;
-}
+
 
 .loginContainer{
      background-color: #9AC8CD ;
@@ -37,3 +32,14 @@ form{
     left: 550px;
 }
 
+.closeButton{
+     color: #1E0342;
+}
+
+
+/* button .loginbutton{
+     width: 800px;
+     padding: 15px;
+     border-radius: 5px;
+     background-color: #1E0342;
+} */

@@ -5,6 +5,8 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import iqlas from '../image/iqlas.png';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import './form.css';
 
 function RegistrationFormClient() {
   const [formData, setFormData] = useState({
@@ -17,6 +19,7 @@ function RegistrationFormClient() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +44,14 @@ function RegistrationFormClient() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
+  const handleClose = () => {
+    setIsFormVisible(false);
+  };
+
+  if (!isFormVisible) {
+    return null;
+  }
+
   return (
     <div className="ClientformContainer" style={{
       backgroundColor: '#9AC8CD',
@@ -51,7 +62,22 @@ function RegistrationFormClient() {
       left: '500px',
       marginBottom: '50px'
     }}>
-      <div className='clientForm' style={{ marginTop: '100px', marginBottom: '50px' }}>
+      <IconButton
+        onClick={handleClose}
+        style={{ 
+          position: 'absolute', 
+          top: '10px', 
+          right: '10px', 
+          color: '#1E0342', 
+          backgroundColor: 'transparent', 
+          fontSize: '50px'
+        }}
+      >
+          <a href="/" class="home-link">
+      <CloseOutlinedIcon lin/>
+      </a>
+      </IconButton>
+      <div className='clientForm' style={{ marginTop: '200px', marginBottom: '50px' }}>
         <div className='formImage' style={{ display: 'flex', justifyContent: 'center' }}>
           <img className='registrationPageLogo' src={iqlas} alt="product logo" style={{ height: '200px', top: '50px' }} />
         </div>
@@ -113,7 +139,7 @@ function RegistrationFormClient() {
             </IconButton>
           </div>
           {error && <p style={{ color: 'red' }}>{error}</p>}
-          <Button type="submit" variant="contained" color="primary" style={{ margin: '20px 0', width: '300px', padding: '20px', position: 'relative', left: '50px', borderRadius: '30px' }}>
+          <Button type="submit" variant="contained" color="primary" style={{ backgroundColor: '#1E0342', margin: '20px 0', width: '300px', padding: '20px', position: 'relative', left: '50px', borderRadius: '30px' }}>
             Submit
           </Button>
         </form>

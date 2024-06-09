@@ -1,48 +1,54 @@
 import React, { useState } from 'react';
 import iqlas from '../image/iqlas.png';
 import './RegPage.css';
-import LoginForm from '../Log-Signup/login';
+import LoginForm from '../Log-Signup/login';  // Import the LoginForm component
+import RegistrationFormClient from '../Log-Signup/RegistrationFormClient';
+import RegistrationFormSeller from '../Log-Signup/RegistrationFormSeller';
 
 export default function Page() {
-  const [click, setClick] = useState('');
+  const [view, setView] = useState('home');  // Manage the view state
 
-  function handleClick(event) {
-    setClick(event.target.value);
+  function handleClick(view) {
+    setView(view);
   }
 
   return (
-    <div className="homePage-container" style={{ display: 'grid', gridTemplateColumns: '444px', gridTemplateRows: '777px', position: 'fixed' }}>
-      <div className="homepage-box" style={{ border: '1px solid #9AC8CD', backgroundColor: '#9AC8CD', borderRadius: '20px', marginTop: '20px' }}>
-        <div className='homewhite-line'>
-          <div className='firstPage-log'>
-            <img className='registrationPageLogo' src={iqlas} alt="product logo" />
-            <div className='homebutton-container'>
-              <ul style={{ listStyleType: 'none', padding: 0 }}>
-                <li>
-                  <button onClick={handleClick} className="RegPageButton signIn" value="signIn">Sign in</button>
-                </li>
-                <li>
-                  <button onClick={handleClick} className="RegPageButton business" value="business">Create Business Account</button>
-                </li>
-                <li>
-                  <button onClick={handleClick} className="RegPageButton client" value="client">Create Client Account</button>
-                </li>
-                <li>
-                  <button onClick={handleClick} className="RegPageButtonApp" value="app">Get IQLAS App</button>
-                </li>
-              </ul>
-            </div>
-            <div className='termPolicy'>
-              <h3>
-                By Signing up, you agree to <br />
-                <span>Terms of Service</span> and
-                <span> Privacy Policy <br /> </span>
-                including <span>Cookie Use</span>
-              </h3>
+    <div className="page-container">
+      {view === 'home' ? (
+        <div className="homePage-container">
+          <div className="homepage-box">
+            <div className='homewhite-line'>
+              <div className='firstPage-log'>
+                <img className='registrationPageLogo' src={iqlas} alt="product logo" />
+                <div className='homebutton-container'>
+                  <ul style={{ listStyleType: 'none', padding: 0 }}>
+                    <li><button onClick={() => handleClick('signin')} className="RegPageButton signIn">Sign in</button></li>
+                    <li><button onClick={() => handleClick('createBusiness')} className="RegPageButton business">Create Business Account</button></li>
+                    <li><button onClick={() => handleClick('createClient')} className="RegPageButton client">Create Client Account</button></li>
+                    <li><button onClick={() => handleClick('getApp')} className="RegPageButtonApp">Get IQLAS App</button></li>
+                  </ul>
+                </div>
+                <div className='termPolicy'>
+                  <h3>
+                    By Signing up, you agree to <br />
+                    <span>Terms of Service</span> and
+                    <span> Privacy Policy <br /> </span>
+                    including <span>Cookie Use</span>
+                  </h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : view === 'signin' ? (
+        <LoginForm />
+      ) : view === 'createBusiness' ? (
+        <RegistrationFormSeller />
+      ) : view === 'createClient' ? (
+        <RegistrationFormClient />
+      ) : view === 'getApp' ? (
+        alert('App in progress')
+      ) : null}
     </div>
   );
 }

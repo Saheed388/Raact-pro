@@ -102,7 +102,7 @@ function Post({ post, onUpdate }) {
     <div className="post" style={{ backgroundColor: ' rgb(77, 71, 71)', padding: '100px', borderRadius: '5px' }}>
       <h2>{title}</h2>
       <p>{content}</p>
-      {image && <img src={URL.createObjectURL(image)} alt="Post Image" width="auto" />}
+      {image && <img src={URL.createObjectURL(image)} alt="Post Image" width="500px" />}
       {video && <video controls width="auto"><source src={URL.createObjectURL(video)} type={video.type} /></video>}
       
       <form onSubmit={handleCommentSubmit} style={{ marginBottom: '10px' }}>

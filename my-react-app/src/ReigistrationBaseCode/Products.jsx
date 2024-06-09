@@ -2,10 +2,15 @@ import React from 'react';
 import './RegPage.css'; // Import CSS file for styling (assuming you have one)
 
 export default function Products() {
+
+function handleClick(){
+  alert('Register to Start Uploading')
+}
+
   return (
     <div className="select-container">
         <div>
-            <button className='uploadDiecretToLogin'> UPLOAD  </button>
+            <button onClick={handleClick} className='uploadDiecretToLogin'> UPLOAD  </button>
         </div>
       {/* <label htmlFor="Products">Select Products | Skills:</label> */}
       <select name="Products" id="Products">
